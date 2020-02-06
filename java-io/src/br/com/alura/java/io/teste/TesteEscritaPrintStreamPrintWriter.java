@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 
-public class TesteEscrita3 {
+public class TesteEscritaPrintStreamPrintWriter {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		
@@ -18,3 +18,4 @@ public class TesteEscrita3 {
 		
 	}
 }
+
