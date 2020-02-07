@@ -11,29 +11,32 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
+import java.net.Socket;
 
 public class TesteCopiarArquivo {
 
 	public static void main(String[] args) throws IOException {
-
-		InputStream inputStream = new FileInputStream("lorem.txt");
-		Reader reader = new InputStreamReader(inputStream);
-		BufferedReader bufferedReader = new BufferedReader(reader);
-
-		OutputStream outputStream = new FileOutputStream("lorem2.txt");
-		Writer writer = new OutputStreamWriter(outputStream);
-		BufferedWriter bufferedWriter = new BufferedWriter(writer);
-
-		String linha = bufferedReader.readLine();
-
-		while (linha != null && !linha.isEmpty()) {
-			bufferedWriter.write(linha);
-			bufferedWriter.newLine();
-			bufferedWriter.flush();
-			linha = bufferedReader.readLine();
+		
+//		Socket s = new Socket();		
+		InputStream fis = System.in; //new FileInputStream("lorem.txt");
+		Reader isr = new InputStreamReader(fis);
+		BufferedReader br = new BufferedReader(isr);
+		
+		OutputStream fos = System.out;  //new FileOutputStream("lorem2.txt");
+		Writer osw = new OutputStreamWriter(fos);
+		BufferedWriter bw = new BufferedWriter(osw);
+		
+		String linha = br.readLine();
+		
+		while( !(linha == null || linha.isEmpty()) ) {
+			bw.write(linha);
+			bw.newLine();
+			bw.flush();
+			linha = br.readLine();
 		}
-
-		bufferedReader.close();
-		bufferedWriter.close();
+	
+		br.close();
+		bw.close();
+		
 	}
 }

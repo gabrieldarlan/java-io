@@ -1,21 +1,34 @@
 package br.com.alura.java.io.teste;
 
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 
 public class TesteEscritaPrintStreamPrintWriter {
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws IOException {
 		
-//		PrintStream printStream = new PrintStream("lorem2.txt");
-		PrintStream printStream = new PrintStream(new File("lorem2.txt"));
+		//Fluxo de Entrada com Arquivo
+//		OutputStream fos = new FileOutputStream("lorem2.txt");
+//		Writer osw = new OutputStreamWriter(fos);
+//		BufferedWriter bw = new BufferedWriter(osw);
 		
-		printStream.println("Mussum Ipsum, cacilds vidis litro abertis. Leite de capivaris");
-		printStream.println("Mussum Ipsum, cacilds vidis litro abertis. Leite de capivaris");
+//		BufferedWriter bw = new BufferedWriter(new FileWriter("lorem2.txt"));
+//		PrintStream ps = new PrintStream(new File("lorem2.txt"));
+		PrintWriter ps = new PrintWriter("lorem2.txt","UTF-8");
+
+		ps.println("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod");
+		ps.println();
+		ps.println();
+		ps.println();
+		ps.println("asfasdfsafdas dfs sdf asf assdß");
+				
+		ps.close();
 		
-		printStream.close();
+		System.out.println();
 		
 	}
 }
-

@@ -10,20 +10,20 @@ import java.io.Reader;
 public class TesteLeitura {
 
 	public static void main(String[] args) throws IOException {
-
-		// Fluxo de entrada com arquivo
-		InputStream inputStream = new FileInputStream("lorem.txt");
-	    Reader reader = new InputStreamReader(inputStream);
-		BufferedReader bufferedReader = new BufferedReader(reader);
-
-		String linha = bufferedReader.readLine();
-
-		while (linha != null) {
-			System.out.println(linha);
-			linha = bufferedReader.readLine();
-		}
 		
-		bufferedReader.close();
-
+		//Fluxo de Entrada com Arquivo
+		InputStream fis = new FileInputStream("lorem.txt");
+		Reader isr = new InputStreamReader(fis, "UTF-8");
+		BufferedReader br = new BufferedReader(isr);
+		
+		String linha = br.readLine();
+		
+		while(linha != null) {
+			System.out.println(linha);
+			linha = br.readLine();
+		}
+	
+		br.close();
+		
 	}
 }
